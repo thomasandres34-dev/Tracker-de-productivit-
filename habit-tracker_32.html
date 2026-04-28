@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="TCMV">
+<meta name="theme-color" content="#080808">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>TCMV Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #080808; font-family: 'Poppins', sans-serif; color: #fff; min-height: 100vh; padding: 20px 16px 80px; }
+.container { width: 100%; max-width: 480px; margin: 0 auto; }
+.eyebrow { font-size: 9px; font-weight: 600; color: #666; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 4px; }
+.big-title { font-size: 34px; font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 2px; }
+.big-subtitle { font-size: 11px; font-weight: 300; color: #888; margin-bottom: 14px; }
+.section-label { font-size: 9px; font-weight: 600; color: #666; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+.divider { border: none; border-top: 1px solid #141414; margin: 14px 0; }
+
+/* Tabs */
+.tab-bar { display:flex; gap:0; border-bottom:1px solid #1a1a1a; margin-bottom:16px; }
+.tab-btn { flex:1; padding:10px 6px; font-family:'Poppins',sans-serif; font-size:9px; font-weight:700; color:#444; text-transform:uppercase; letter-spacing:0.1em; background:none; border:none; border-bottom:2px solid transparent; cursor:pointer; transition:all 0.15s; -webkit-tap-highlight-color:transparent; }
+.tab-btn.active { color:#fff; border-bottom-color:#fff; }
+.tab-view { display:none; }
+.tab-view.active { display:block; }
+
+/* Stats */
+.stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:12px; }
+.stat-card { background:#111; border:1px solid #1e1e1e; border-radius:8px; padding:8px 6px; text-align:center; }
+.stat-val { font-size:18px; font-weight:900; color:#fff; line-height:1; margin-bottom:3px; }
+.stat-lbl { font-size:7px; font-weight:600; color:#444; text-transform:uppercase; letter-spacing:0.08em; }
+
+/* Main grid */
+.main-grid { display:grid; grid-template-columns:1fr 120px; gap:10px; margin-bottom:12px; align-items:stretch; }
+
+/* Calendar */
+.cal-wrap { background:#0f0f0f; border:1px solid #1a1a1a; border-radius:12px; padding:10px; }
+.cal-month-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+.cal-month-name { font-size:10px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.1em; }
+.cal-month-year { font-size:9px; font-weight:300; color:#444; }
+.cal-days-header { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin-bottom:4px; }
+.cal-day-name { font-size:7px; font-weight:600; color:#555; text-align:center; text-transform:uppercase; }
+.cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; }
+.cal-grid-stretch { align-content:stretch; }
+.cal-cell { aspect-ratio:1; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:600; cursor:pointer; transition:all 0.15s; -webkit-tap-highlight-color:transparent; background:#161616; color:#555; border:1px solid #1e1e1e; }
+.cal-grid-stretch .cal-cell { aspect-ratio:unset; }
+.cal-cell.empty { background:transparent; border:none; cursor:default; }
+.cal-cell.today { border-color:#fff !important; color:#fff !important; }
+.cal-cell.future { opacity:0.3; }
+.cal-cell[data-score="1"] { background:#0D1F0D; color:#2A5C2A; border-color:#1A3A1A; }
+.cal-cell[data-score="2"] { background:#0F2A0F; color:#3A7A3A; border-color:#1E4A1E; }
+.cal-cell[data-score="3"] { background:#115511; color:#4A9A4A; border-color:#226622; }
+.cal-cell[data-score="4"] { background:#137013; color:#55B055; border-color:#268026; }
+.cal-cell[data-score="5"] { background:#158015; color:#66CC66; border-color:#2A902A; }
+.cal-cell[data-score="6"] { background:#179917; color:#77DD77; border-color:#2FAA2F; }
+.cal-cell[data-score="7"] { background:#19B019; color:#fff; border-color:#33BB33; }
+.legend { display:flex; align-items:center; gap:4px; margin-top:8px; justify-content:flex-end; }
+.legend-label { font-size:7px; font-weight:300; color:#666; }
+.legend-dots { display:flex; gap:2px; }
+.ldot { width:9px; height:9px; border-radius:2px; }
+
+/* Check panel */
+.check-panel { background:#0f0f0f; border:1px solid #1a1a1a; border-radius:12px; padding:10px; }
+.check-day-title { font-size:10px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:1px; }
+.check-day-score { font-size:8px; font-weight:300; color:#666; }
+.check-nav { display:flex; gap:4px; margin-top:6px; }
+.nav-btn { background:#1a1a1a; border:1px solid #222; border-radius:5px; width:24px; height:20px; font-size:10px; color:#777; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent; font-family:'Poppins',sans-serif; }
+.nav-btn:active { background:#2a2a2a; color:#fff; }
+.today-chip { background:#1a1a1a; border:1px solid #222; border-radius:6px; padding:0 10px; height:22px; font-size:8px; font-weight:600; color:#777; text-transform:uppercase; letter-spacing:0.06em; cursor:pointer; display:inline-flex; align-items:center; -webkit-tap-highlight-color:transparent; font-family:'Poppins',sans-serif; }
+.habit-checks { display:flex; flex-direction:column; gap:5px; margin-top:8px; }
+.hcheck { display:flex; align-items:center; gap:6px; padding:6px 7px; background:#141414; border:1px solid #1e1e1e; border-radius:6px; cursor:pointer; -webkit-tap-highlight-color:transparent; transition:all 0.15s; }
+.hcheck.done { background:#0d1a0d; border-color:#1a3a1a; }
+.hcheck-box { width:14px; height:14px; border-radius:3px; border:1.5px solid #2a2a2a; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.15s; }
+.hcheck.done .hcheck-box { background:#33BB33; border-color:#33BB33; }
+.hcheck-tick { font-size:9px; color:#fff; display:none; }
+.hcheck.done .hcheck-tick { display:block; }
+.hcheck-name { font-size:8.5px; font-weight:500; color:#888; line-height:1.3; flex:1; }
+.hcheck.done .hcheck-name { color:#ccc; }
+
+/* Note */
+.day-note { width:100%; background:#111; border:1px solid #1e1e1e; border-radius:8px; padding:10px 12px; font-family:'Poppins',sans-serif; font-size:10px; font-weight:300; color:#aaa; outline:none; resize:none; min-height:56px; -webkit-appearance:none; line-height:1.6; }
+.day-note::placeholder { color:#2a2a2a; }
+.day-note:focus { border-color:#2a2a2a; }
+
+/* Habits management */
+.habits-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+.habits-count { font-size:9px; font-weight:300; color:#666; }
+.habit-list { display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+.habit-item { display:flex; align-items:center; gap:8px; padding:9px 12px; background:#111; border:1px solid #1e1e1e; border-radius:8px; }
+.habit-name-text { flex:1; font-size:10px; font-weight:500; color:#ccc; }
+.habit-delete { background:none; border:none; font-size:12px; color:#555; cursor:pointer; padding:2px 4px; -webkit-tap-highlight-color:transparent; font-family:'Poppins',sans-serif; transition:color 0.15s; }
+.habit-delete:active { color:#FF4444; }
+.add-habit-row { display:flex; gap:8px; }
+.habit-input { flex:1; background:#111; border:1px solid #2a2a2a; border-radius:8px; padding:10px 12px; font-family:'Poppins',sans-serif; font-size:11px; color:#fff; outline:none; -webkit-appearance:none; }
+.habit-input::placeholder { color:#333; }
+.habit-input:focus { border-color:#444; }
+.add-btn { background:#fff; border:none; border-radius:8px; padding:10px 14px; font-family:'Poppins',sans-serif; font-size:10px; font-weight:700; color:#080808; cursor:pointer; white-space:nowrap; -webkit-tap-highlight-color:transparent; transition:opacity 0.15s; }
+.add-btn:active { opacity:0.8; }
+.reset-btn { background:transparent; border:1px solid #2a2a2a; border-radius:6px; padding:5px 10px; font-family:'Poppins',sans-serif; font-size:9px; font-weight:600; color:#666; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; transition:all 0.15s; -webkit-tap-highlight-color:transparent; }
+.empty-habits { font-size:10px; font-weight:300; color:#333; padding:10px 0; text-align:center; }
+
+/* Graph */
+.graph-wrap { background:#0f0f0f; border:1px solid #1a1a1a; border-radius:12px; padding:12px 10px 8px; margin-bottom:14px; }
+
+/* History */
+.month-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.month-nav-btn { background:#141414; border:1px solid #222; border-radius:6px; padding:6px 12px; font-family:'Poppins',sans-serif; font-size:9px; font-weight:600; color:#666; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; -webkit-tap-highlight-color:transparent; transition:all 0.15s; }
+.month-nav-btn:active { background:#222; color:#fff; }
+.month-nav-btn:disabled { opacity:0.2; cursor:default; }
+.month-nav-title { font-size:13px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.06em; }
+.hist-cal-wrap { background:#0f0f0f; border:1px solid #1a1a1a; border-radius:12px; padding:10px; margin-bottom:14px; }
+.hist-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:14px; }
+.hist-stat { background:#111; border:1px solid #1e1e1e; border-radius:8px; padding:8px; text-align:center; }
+.hist-stat .hv { font-size:20px; font-weight:900; color:#fff; line-height:1; margin-bottom:3px; }
+.hist-stat .hl { font-size:7px; font-weight:600; color:#444; text-transform:uppercase; letter-spacing:0.08em; }
+.notes-table { width:100%; border-collapse:collapse; }
+.notes-table thead th { font-size:8px; font-weight:700; color:#444; text-transform:uppercase; letter-spacing:0.1em; padding:8px 10px; text-align:left; border-bottom:1px solid #1e1e1e; background:#0f0f0f; }
+.notes-table tbody tr { border-bottom:1px solid #141414; }
+.notes-table tbody tr:last-child { border-bottom:none; }
+.notes-table tbody td { font-size:10px; font-weight:300; color:#888; padding:10px; vertical-align:top; }
+.notes-table tbody td:first-child { color:#555; font-weight:600; font-size:9px; white-space:nowrap; width:60px; }
+.notes-empty { font-size:10px; font-weight:300; color:#333; padding:16px 0; text-align:center; }
+
+
+/* ── DESKTOP LAYOUT ── */
+@media (min-width: 768px) {
+  body { padding: 32px 40px 60px; background: #050505; }
+  
+  .container { max-width: 1100px; }
+
+  /* Header row */
+  .desktop-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  /* Two column layout */
+  .desktop-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .desktop-left { display: flex; flex-direction: column; gap: 16px; }
+  .desktop-right { display: flex; flex-direction: column; gap: 16px; }
+
+  /* Calendar bigger */
+  .main-grid {
+    grid-template-columns: 1fr 180px;
+    gap: 14px;
+  }
+
+  .cal-cell { font-size: 10px; border-radius: 6px; }
+  .cal-grid { gap: 5px; }
+  .cal-days-header { gap: 5px; margin-bottom: 6px; }
+  .cal-day-name { font-size: 9px; }
+
+  .big-title { font-size: 42px; }
+
+  /* Stats row 4 cards side by side */
+  .stats-row { gap: 10px; }
+  .stat-val { font-size: 22px; }
+
+  /* Graph bigger */
+  #graph-canvas { min-height: 120px; }
+
+  /* Habits management wider */
+  .habit-item { padding: 11px 16px; }
+  .habit-name-text { font-size: 12px; }
+  .add-habit-row { gap: 10px; }
+  .habit-input { font-size: 12px; padding: 12px 16px; }
+  .add-btn { font-size: 11px; padding: 12px 18px; }
+
+  /* Tab bar */
+  .tab-bar { margin-bottom: 24px; }
+  .tab-btn { font-size: 10px; padding: 12px 16px; }
+
+  /* Check panel */
+  .check-panel { padding: 14px; }
+  .check-day-title { font-size: 13px; }
+  .hcheck { padding: 9px 10px; gap: 8px; }
+  .hcheck-name { font-size: 11px; }
+  .hcheck-box { width: 18px; height: 18px; }
+  .hcheck-tick { font-size: 12px; }
+
+  /* Note */
+  .day-note { min-height: 72px; font-size: 11px; }
+
+  /* History */
+  .hist-stats { gap: 10px; }
+  .hist-stat .hv { font-size: 24px; }
+}
+
+/* ── ONBOARDING OVERLAY ── */
+.ob-overlay { position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.75); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); display:flex; align-items:center; justify-content:center; padding:20px; }
+.ob-overlay.hidden { display:none; }
+.ob-sheet { width:100%; max-width:440px; background:#111; border:1px solid #222; border-radius:20px; padding:24px 20px 28px; animation:ob-rise 0.4s cubic-bezier(0.34,1.4,0.64,1); }
+@keyframes ob-rise { from { transform:translateY(50px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+.ob-handle { width:32px; height:3px; background:#2a2a2a; border-radius:2px; margin:0 auto 20px; }
+.ob-prog { display:flex; gap:4px; margin-bottom:20px; }
+.ob-prog-dot { height:2px; flex:1; border-radius:1px; background:#1e1e1e; transition:background 0.2s; }
+.ob-prog-dot.on { background:#fff; }
+.ob-cal-demo { background:#0a0a0a; border:1px solid #1a1a1a; border-radius:12px; padding:12px; margin-bottom:18px; }
+.ob-cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
+.ob-cal-cell { aspect-ratio:1; border-radius:5px; border:1px solid transparent; }
+.ob-steps { display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+.ob-step { display:flex; align-items:flex-start; gap:12px; padding:10px 12px; background:#161616; border:1px solid #1e1e1e; border-radius:8px; }
+.ob-step-num { font-size:16px; font-weight:900; color:#444; min-width:18px; line-height:1.4; }
+.ob-step-title { font-size:10px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px; }
+.ob-step-desc { font-size:9px; font-weight:300; color:#777; line-height:1.5; }
+.ob-habit-list { display:flex; flex-direction:column; gap:6px; margin-bottom:10px; min-height:10px; }
+.ob-habit-item { display:flex; align-items:center; gap:8px; padding:9px 12px; background:#161616; border:1px solid #1e1e1e; border-radius:8px; }
+.ob-habit-item span { flex:1; font-size:10px; font-weight:500; color:#ccc; }
+.ob-habit-del { background:none; border:none; color:#333; cursor:pointer; font-size:12px; font-family:'Poppins',sans-serif; }
+.ob-input-row { display:flex; gap:8px; margin-bottom:6px; }
+.ob-input { flex:1; background:#0f0f0f; border:1px solid #2a2a2a; border-radius:8px; padding:10px 12px; font-family:'Poppins',sans-serif; font-size:11px; color:#fff; outline:none; -webkit-appearance:none; }
+.ob-input::placeholder { color:#333; }
+.ob-input:focus { border-color:#444; }
+.ob-suggestions { font-size:8px; font-weight:300; color:#555; line-height:1.6; margin-bottom:14px; }
+.ob-btn-primary { width:100%; padding:14px; border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-size:11px; font-weight:700; color:#080808; background:#fff; cursor:pointer; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px; -webkit-tap-highlight-color:transparent; }
+.ob-btn-secondary { width:100%; padding:8px; background:transparent; border:none; font-family:'Poppins',sans-serif; font-size:9px; font-weight:600; color:#333; cursor:pointer; text-transform:uppercase; letter-spacing:0.1em; -webkit-tap-highlight-color:transparent; }
+</style>
+</head>
+<body>
+
+<!-- ONBOARDING OVERLAY -->
+<div class="ob-overlay hidden" id="ob-overlay">
+  <div class="ob-sheet">
+    <div class="ob-handle"></div>
+    <div class="ob-prog">
+      <div class="ob-prog-dot on" id="op1"></div>
+      <div class="ob-prog-dot" id="op2"></div>
+      <div class="ob-prog-dot" id="op3"></div>
+      <div class="ob-prog-dot" id="op4"></div>
+    </div>
+
+    <!-- Slide 1 -->
+    <div id="ob-s1">
+      <div class="eyebrow">TCMV · Tracker</div>
+      <div class="big-title">TRACKER DE<br><span style="color:#888;">PRODUCTIVITÉ</span></div>
+      <p class="big-subtitle" style="margin-bottom:16px;">Coche tes habitudes. Construis ton streak. Mesure ta progression.</p>
+      <div class="ob-cal-demo">
+        <div class="ob-cal-grid" id="ob-demo-cal"></div>
+      </div>
+      <button class="ob-btn-primary" onclick="obNext()">Découvrir →</button>
+      <button class="ob-btn-secondary" onclick="obFinish()">Passer l'intro</button>
+    </div>
+
+    <!-- Slide 2 -->
+    <div id="ob-s2" style="display:none;">
+      <div class="eyebrow">Comment ça marche</div>
+      <div class="big-title" style="margin-bottom:16px;">3 ÉTAPES.</div>
+      <div class="ob-steps">
+        <div class="ob-step">
+          <div class="ob-step-num">1</div>
+          <div><div class="ob-step-title">Définis tes habitudes</div><div class="ob-step-desc">Jusqu'à 7 habitudes — réveil, sport, alimentation, routine du soir.</div></div>
+        </div>
+        <div class="ob-step">
+          <div class="ob-step-num">2</div>
+          <div><div class="ob-step-title">Coche chaque soir</div><div class="ob-step-desc">Sélectionne le jour sur le calendrier et coche ce que tu as réalisé.</div></div>
+        </div>
+        <div class="ob-step">
+          <div class="ob-step-num">3</div>
+          <div><div class="ob-step-title">Mesure ta progression</div><div class="ob-step-desc">Le calendrier se colore. Plus c'est vert, mieux c'est. Construis ton streak.</div></div>
+        </div>
+      </div>
+      <button class="ob-btn-primary" onclick="obNext()">Ajouter mes habitudes →</button>
+      <button class="ob-btn-secondary" onclick="obPrev()">← Retour</button>
+    </div>
+
+    <!-- Slide 3 -->
+    <div id="ob-s3" style="display:none;">
+      <div class="eyebrow">Étape finale</div>
+      <div class="big-title" style="margin-bottom:4px;">MES<br><span style="color:#888;">HABITUDES.</span></div>
+      <p class="big-subtitle">Ajoute tes premières habitudes à tracker.</p>
+      <div class="ob-habit-list" id="ob-habit-list"></div>
+      <div class="ob-input-row">
+        <input type="text" class="ob-input" id="ob-input" placeholder="Ex: Réveil 5h30, Gym..." maxlength="40" onkeydown="if(event.key==='Enter') obAddHabit()">
+        <button class="ob-btn-primary" style="width:auto;padding:10px 14px;margin-bottom:0;font-size:10px;" onclick="obAddHabit()">+</button>
+      </div>
+      <p class="ob-suggestions">Suggestions : Réveil 5h30 · Gym session · Pas de scroll avant 11h · Routine du soir</p>
+      <button class="ob-btn-primary" onclick="obGoTo(4)">Suivant →</button>
+      <button class="ob-btn-secondary" onclick="obFinish()">Configurer plus tard</button>
+    </div>
+
+    <!-- Slide 4 — Install on iPhone -->
+    <div id="ob-s4" style="display:none;">
+      <div class="eyebrow">Bonus · iPhone</div>
+      <div class="big-title" style="margin-bottom:4px;">INSTALLER<br><span style="color:#888;">L'APP.</span></div>
+      <p class="big-subtitle" style="margin-bottom:16px;">Ajoute le tracker sur ton écran d'accueil en 3 étapes.</p>
+
+      <!-- iPhone schema -->
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:12px;padding:16px;margin-bottom:18px;">
+        
+        <!-- Step 1 -->
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:#191919;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:14px;font-weight:900;color:#555;">1</span>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:10px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">Ouvrir dans Safari</div>
+            <div style="font-size:9px;font-weight:300;color:#666;line-height:1.4;">Uniquement Safari — Chrome ne supporte pas cette fonction</div>
+          </div>
+          <!-- Safari icon mini -->
+          <div style="width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#1a6fff,#5ac8fa);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <div style="width:16px;height:16px;border:2px solid rgba(255,255,255,0.9);border-radius:50%;position:relative;">
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:1px;background:rgba(255,255,255,0.9);"></div>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(90deg);width:8px;height:1px;background:rgba(255,255,255,0.9);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#1a1a1a;margin-bottom:14px;"></div>
+
+        <!-- Step 2 -->
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:#191919;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:14px;font-weight:900;color:#555;">2</span>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:10px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">Appuyer sur Partager</div>
+            <div style="font-size:9px;font-weight:300;color:#666;line-height:1.4;">Le bouton carré avec une flèche vers le haut en bas de Safari</div>
+          </div>
+          <!-- Share icon -->
+          <div style="width:28px;height:28px;border-radius:6px;background:#1e1e1e;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
+              <rect x="3" y="4" width="8" height="10" rx="1.5" stroke="#888" stroke-width="1.2" fill="none"/>
+              <line x1="7" y1="0" x2="7" y2="9" stroke="#888" stroke-width="1.2" stroke-linecap="round"/>
+              <polyline points="4,3 7,0 10,3" stroke="#888" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#1a1a1a;margin-bottom:14px;"></div>
+
+        <!-- Step 3 -->
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:#191919;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:14px;font-weight:900;color:#555;">3</span>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:10px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">"Sur l'écran d'accueil"</div>
+            <div style="font-size:9px;font-weight:300;color:#666;line-height:1.4;">Fais défiler le menu et appuie sur cette option · Confirme · C'est installé</div>
+          </div>
+          <!-- Home screen icon -->
+          <div style="width:28px;height:28px;border-radius:6px;background:#19B019;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <rect x="1" y="1" width="5" height="5" rx="1" fill="rgba(0,0,0,0.4)"/>
+              <rect x="8" y="1" width="5" height="5" rx="1" fill="rgba(0,0,0,0.4)"/>
+              <rect x="1" y="8" width="5" height="5" rx="1" fill="rgba(0,0,0,0.4)"/>
+              <rect x="8" y="8" width="5" height="5" rx="1" fill="rgba(0,0,0,0.4)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <button class="ob-btn-primary" onclick="obFinish()">C'est parti →</button>
+      <button class="ob-btn-secondary" onclick="obPrev()">← Retour</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div class="container">
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('tracker', this)">◎ Tracker</button>
+    <button class="tab-btn" onclick="switchTab('history', this)">◷ Historique</button>
+  </div>
+
+  <!-- TAB TRACKER -->
+  <div id="tab-tracker" class="tab-view active">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;">
+      <div>
+        <div class="eyebrow">TCMV · Tracker</div>
+        <div class="big-title">TRACKER DE<br>PRODUCTIVITÉ</div>
+        <div class="big-subtitle">Exécute. Mesure. Progresse.</div>
+      </div>
+      <button class="reset-btn" id="reset-btn">↺ Reset</button>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-val" id="stat-perfect">0</div><div class="stat-lbl">Parfaits</div></div>
+      <div class="stat-card"><div class="stat-val" id="stat-rate">0%</div><div class="stat-lbl">Tâches/j</div></div>
+      <div class="stat-card"><div class="stat-val" id="stat-streak">0</div><div class="stat-lbl">Streak</div></div>
+      <div class="stat-card"><div class="stat-val" id="stat-best" style="color:#888;">0</div><div class="stat-lbl">Best</div></div>
+    </div>
+
+    <div class="main-grid">
+      <div class="cal-wrap">
+        <div class="cal-month-row">
+          <span class="cal-month-name" id="cal-month-name">—</span>
+          <span class="cal-month-year" id="cal-month-year">—</span>
+        </div>
+        <div class="cal-days-header">
+          <div class="cal-day-name">L</div><div class="cal-day-name">M</div>
+          <div class="cal-day-name">M</div><div class="cal-day-name">J</div>
+          <div class="cal-day-name">V</div><div class="cal-day-name">S</div>
+          <div class="cal-day-name">D</div>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+        <div class="legend">
+          <span class="legend-label">0</span>
+          <div class="legend-dots">
+            <div class="ldot" style="background:#161616;border:1px solid #222;"></div>
+            <div class="ldot" style="background:#0D1F0D;"></div>
+            <div class="ldot" style="background:#115511;"></div>
+            <div class="ldot" style="background:#158015;"></div>
+            <div class="ldot" style="background:#19B019;"></div>
+          </div>
+          <span class="legend-label">✓</span>
+        </div>
+      </div>
+      <div class="check-panel">
+        <div style="font-size:7px;font-weight:600;color:#444;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;">Jour sélectionné</div>
+        <div class="check-day-title" id="check-day-title">Auj.</div>
+        <div class="check-day-score" id="check-day-score">0 / 0 tâches</div>
+        <div class="check-nav">
+          <button class="today-chip" onclick="goToToday()">Aujourd'hui</button>
+        </div>
+        <div style="border-top:1px solid #1e1e1e;margin:8px 0;"></div>
+        <div style="font-size:7px;font-weight:600;color:#444;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;">Cocher les tâches</div>
+        <div class="habit-checks" id="habit-checks"></div>
+      </div>
+    </div>
+
+    <div class="section-label">Note du jour</div>
+    <textarea class="day-note" id="day-note" rows="3" placeholder="Énergie, blocages, victoires du jour..." oninput="saveNote()"></textarea>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Progression du mois</div>
+    <div class="graph-wrap">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <span style="font-size:9px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.1em;" id="graph-month-label">—</span>
+        <span style="font-size:8px;font-weight:300;color:#666;">taux de complétion / jour</span>
+      </div>
+      <canvas id="graph-canvas" style="width:100%;display:block;"></canvas>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="habits-header">
+      <div class="section-label" style="margin-bottom:0;">Mes habitudes</div>
+      <div class="habits-count" id="habits-count">0 / 7</div>
+    </div>
+    <div class="habit-list" id="habit-list"></div>
+    <div class="add-habit-row">
+      <input type="text" class="habit-input" id="habit-input" placeholder="Ajouter une habitude..." maxlength="40" onkeydown="if(event.key==='Enter') addHabit()">
+      <button class="add-btn" onclick="addHabit()">+ Ajouter</button>
+    </div>
+
+    <div style="margin-top:20px;padding:14px 16px;border:1px solid #333;border-left:3px solid #555;border-radius:8px;background:#141414;">
+      <p style="font-size:10px;font-weight:700;color:#ccc;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">⚠ Attention</p>
+      <p style="font-size:10px;font-weight:300;color:#888;line-height:1.7;">Tes données sont sauvegardées dans ce navigateur uniquement. Si tu vides le cache ou les données de navigation, ton historique sera perdu définitivement.</p>
+      <p style="font-size:10px;font-weight:300;color:#666;line-height:1.7;margin-top:8px;">💡 Si tu as ajouté le tracker comme une app sur ton écran d'accueil, tu peux fermer l'app sans t'inquiéter — les données sont sauvegardées en arrière-plan dans le cache de ton appareil.</p>
+    </div>
+  </div>
+
+  <!-- TAB HISTORY -->
+  <div id="tab-history" class="tab-view">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;">
+      <div>
+        <div class="eyebrow">TCMV · Historique</div>
+        <div class="big-title">MOIS<br><span style="color:#888;">PRÉCÉDENTS.</span></div>
+      </div>
+      <button id="full-reset-btn" class="reset-btn">✕ Tout effacer</button>
+    </div>
+
+    <div class="month-nav">
+      <button class="month-nav-btn" id="hist-prev" onclick="histChangeMonth(-1)">← Préc.</button>
+      <span class="month-nav-title" id="hist-month-title">—</span>
+      <button class="month-nav-btn" id="hist-next" onclick="histChangeMonth(1)">Suiv. →</button>
+    </div>
+
+    <div class="hist-stats">
+      <div class="hist-stat"><div class="hv" id="h-perfect">0</div><div class="hl">Parfaits</div></div>
+      <div class="hist-stat"><div class="hv" id="h-rate">0%</div><div class="hl">Tâches/j</div></div>
+      <div class="hist-stat"><div class="hv" id="h-streak">0</div><div class="hl">Best streak</div></div>
+    </div>
+
+    <div class="section-label">Calendrier</div>
+    <div class="hist-cal-wrap">
+      <div class="cal-days-header">
+        <div class="cal-day-name">L</div><div class="cal-day-name">M</div>
+        <div class="cal-day-name">M</div><div class="cal-day-name">J</div>
+        <div class="cal-day-name">V</div><div class="cal-day-name">S</div>
+        <div class="cal-day-name">D</div>
+      </div>
+      <div class="cal-grid" id="hist-cal-grid"></div>
+    </div>
+
+    <div class="section-label">Courbe de progression</div>
+    <div class="graph-wrap" style="margin-bottom:14px;">
+      <canvas id="hist-graph-canvas" style="width:100%;display:block;"></canvas>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+      <div class="section-label" style="margin-bottom:0;">Notes du mois</div>
+      <button onclick="exportNotes()" id="export-btn" style="background:#141414;border:1px solid #2a2a2a;border-radius:6px;padding:5px 10px;font-family:'Poppins',sans-serif;font-size:9px;font-weight:600;color:#666;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">⬇ Copier</button>
+    </div>
+    <div id="hist-notes-wrap"><div class="notes-empty">Aucune note ce mois-ci.</div></div>
+  </div>
+
+</div>
+
+<script>
+
+const now   = new Date();
+const MONTH = now.getMonth();
+const YEAR  = now.getFullYear();
+const TODAY = now.getDate();
+const MONTH_NAMES = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const DAY_SHORT   = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+
+let selectedDay = TODAY;
+
+function getKey() { return `tcmv_${YEAR}_${MONTH}`; }
+function getData() {
+  try { return JSON.parse(localStorage.getItem(getKey()) || '{"habits":[],"days":{},"notes":{}}'); }
+  catch(e) { return {habits:[],days:{},notes:{}}; }
+}
+function setData(d) { try { localStorage.setItem(getKey(), JSON.stringify(d)); } catch(e) {} }
+
+document.getElementById('cal-month-name').textContent = MONTH_NAMES[MONTH];
+document.getElementById('cal-month-year').textContent = YEAR;
+document.getElementById('graph-month-label').textContent = MONTH_NAMES[MONTH] + ' ' + YEAR;
+
+// ── CALENDAR ──
+function buildCalendar() {
+  const grid = document.getElementById('cal-grid');
+  grid.innerHTML = '';
+  const data = getData();
+  const daysInMonth = new Date(YEAR, MONTH + 1, 0).getDate();
+  const firstDay = new Date(YEAR, MONTH, 1).getDay();
+  const offset = firstDay === 0 ? 6 : firstDay - 1;
+  for (let i = 0; i < offset; i++) {
+    const e = document.createElement('div'); e.className = 'cal-cell empty'; grid.appendChild(e);
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const cell = document.createElement('div');
+    cell.className = 'cal-cell';
+    cell.textContent = d;
+    const dayData = data.days[d] || {};
+    const habits  = data.habits || [];
+    const total   = habits.length;
+    const done    = habits.filter(h => dayData[h.id]).length;
+    const score   = total > 0 ? Math.round((done / total) * 7) : 0;
+    if (total > 0 && done > 0) cell.dataset.score = score;
+    if (d === TODAY) cell.classList.add('today');
+    if (d > TODAY)  cell.classList.add('future');
+    if (d === selectedDay) {
+      cell.style.outline = d === TODAY ? '2px solid #fff' : '2px solid #555';
+      cell.style.outlineOffset = '1px';
+    }
+    cell.onclick = () => openDay(d);
+    grid.appendChild(cell);
+  }
+  updateStats();
+  buildGraph();
+}
+
+// ── OPEN DAY ──
+function openDay(d) {
+  const daysInMonth = new Date(YEAR, MONTH + 1, 0).getDate();
+  if (d < 1 || d > daysInMonth) return;
+  selectedDay = d;
+  const data    = getData();
+  const habits  = data.habits || [];
+  const dayData = data.days[d] || {};
+  const done    = habits.filter(h => dayData[h.id]).length;
+  const dateObj = new Date(YEAR, MONTH, d);
+  const dayName = DAY_SHORT[dateObj.getDay() === 0 ? 6 : dateObj.getDay() - 1];
+  const isToday = d === TODAY;
+
+  document.getElementById('check-day-title').textContent = isToday ? `Auj. — ${dayName} ${d}` : `${dayName} ${d}`;
+  document.getElementById('check-day-score').textContent = `${done} / ${habits.length} tâches`;
+
+  const list = document.getElementById('habit-checks');
+  list.innerHTML = '';
+  if (habits.length === 0) {
+    list.innerHTML = '<div style="font-size:9px;color:#333;text-align:center;padding:8px 0;">Ajoute des habitudes</div>';
+  } else {
+    habits.forEach(h => {
+      const checked = !!dayData[h.id];
+      const item = document.createElement('div');
+      item.className = 'hcheck' + (checked ? ' done' : '');
+      item.innerHTML = `<div class="hcheck-box"><span class="hcheck-tick">✓</span></div><div class="hcheck-name">${h.name}</div>`;
+      item.onclick = () => toggleHabit(d, h.id);
+      list.appendChild(item);
+    });
+  }
+
+  const note = document.getElementById('day-note');
+  note.value = (data.notes && data.notes[d]) ? data.notes[d] : '';
+  note.dataset.day = d;
+  buildCalendar();
+  setTimeout(syncGridHeight, 50);
+}
+
+function changeDay(delta) { openDay(selectedDay + delta); }
+function goToToday()       { openDay(TODAY); }
+
+function toggleHabit(day, habitId) {
+  const data = getData();
+  if (!data.days[day]) data.days[day] = {};
+  data.days[day][habitId] = !data.days[day][habitId];
+  setData(data); openDay(day);
+}
+
+function saveNote() {
+  const note = document.getElementById('day-note');
+  const d = parseInt(note.dataset.day) || TODAY;
+  const data = getData();
+  if (!data.notes) data.notes = {};
+  data.notes[d] = note.value;
+  setData(data);
+}
+
+// ── STATS ──
+function updateStats() {
+  const data   = getData();
+  const habits = data.habits || [];
+  const total  = habits.length;
+  const days   = data.days || {};
+  let perfect = 0, bestStreak = 0, currentRun = 0, totalRate = 0, daysWithData = 0;
+  for (let d = 1; d <= TODAY; d++) {
+    const done = habits.filter(h => (days[d]||{})[h.id]).length;
+    if (total > 0) {
+      totalRate += done / total; daysWithData++;
+      if (done === total) { perfect++; currentRun++; if (currentRun > bestStreak) bestStreak = currentRun; }
+      else currentRun = 0;
+    }
+  }
+  let streak = 0;
+  for (let d = TODAY - 1; d >= 1; d--) {
+    const done = habits.filter(h => (days[d]||{})[h.id]).length;
+    if (total > 0 && done === total) streak++;
+    else break;
+  }
+  const todayDone = habits.filter(h => (days[TODAY]||{})[h.id]).length;
+  if (total > 0 && todayDone === total) streak++;
+  const avg = daysWithData > 0 ? Math.round((totalRate / daysWithData) * 100) : 0;
+  document.getElementById('stat-perfect').textContent = perfect;
+  document.getElementById('stat-rate').textContent    = avg + '%';
+  document.getElementById('stat-streak').textContent  = streak;
+  document.getElementById('stat-best').textContent    = bestStreak;
+}
+
+// ── GRAPH ──
+function buildGraph() {
+  const canvas = document.getElementById('graph-canvas');
+  const data   = getData();
+  const habits = data.habits || [];
+  const total  = habits.length;
+  const days   = data.days || {};
+  const daysInMonth = new Date(YEAR, MONTH + 1, 0).getDate();
+
+  // Collect points for days up to today
+  const points = [];
+  for (let d = 1; d <= TODAY; d++) {
+    const done = habits.filter(h => (days[d]||{})[h.id]).length;
+    const rate = total > 0 ? done / total : 0;
+    points.push({ d, rate });
+  }
+
+  // Size canvas
+  const W = canvas.offsetWidth || 400;
+  const H_graph = 80;
+  canvas.width  = W * window.devicePixelRatio;
+  canvas.height = H_graph * window.devicePixelRatio;
+  canvas.style.height = H_graph + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  ctx.clearRect(0, 0, W, H_graph);
+
+  if (points.length < 1) return;
+
+  const padL = 24, padR = 10, padT = 10, padB = 20;
+  const gW = W - padL - padR;
+  const gH = H_graph - padT - padB;
+
+  // Y axis labels (0%, 50%, 100%)
+  ctx.font = '600 7px Poppins, sans-serif';
+  ctx.fillStyle = '#2a2a2a';
+  ctx.textAlign = 'right';
+  ctx.fillText('100%', padL - 4, padT + 4);
+  ctx.fillText('50%',  padL - 4, padT + gH / 2 + 4);
+  ctx.fillText('0%',   padL - 4, padT + gH + 4);
+
+  // Horizontal grid lines
+  ctx.strokeStyle = '#1a1a1a';
+  ctx.lineWidth = 0.5;
+  [0, 0.5, 1].forEach(v => {
+    const y = padT + gH * (1 - v);
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + gW, y); ctx.stroke();
+  });
+
+  // X positions
+  const xPos = d => padL + ((d - 1) / (daysInMonth - 1)) * gW;
+  const yPos = r => padT + gH * (1 - r);
+
+  // Area fill under curve
+  if (points.length > 1) {
+    const grad = ctx.createLinearGradient(0, padT, 0, padT + gH);
+    grad.addColorStop(0, 'rgba(51,187,51,0.18)');
+    grad.addColorStop(1, 'rgba(51,187,51,0)');
+    ctx.beginPath();
+    ctx.moveTo(xPos(points[0].d), padT + gH);
+    ctx.lineTo(xPos(points[0].d), yPos(points[0].rate));
+    for (let i = 1; i < points.length; i++) {
+      const prev = points[i - 1];
+      const curr = points[i];
+      const cpx = (xPos(prev.d) + xPos(curr.d)) / 2;
+      ctx.bezierCurveTo(cpx, yPos(prev.rate), cpx, yPos(curr.rate), xPos(curr.d), yPos(curr.rate));
+    }
+    ctx.lineTo(xPos(points[points.length - 1].d), padT + gH);
+    ctx.closePath();
+    ctx.fillStyle = grad;
+    ctx.fill();
+  }
+
+  // Curve line
+  ctx.beginPath();
+  ctx.strokeStyle = '#33BB33';
+  ctx.lineWidth = 1.5;
+  ctx.lineJoin = 'round';
+  ctx.lineCap  = 'round';
+  if (points.length === 1) {
+    ctx.arc(xPos(points[0].d), yPos(points[0].rate), 2, 0, Math.PI * 2);
+    ctx.fillStyle = '#33BB33'; ctx.fill();
+  } else {
+    ctx.moveTo(xPos(points[0].d), yPos(points[0].rate));
+    for (let i = 1; i < points.length; i++) {
+      const prev = points[i - 1];
+      const curr = points[i];
+      const cpx = (xPos(prev.d) + xPos(curr.d)) / 2;
+      ctx.bezierCurveTo(cpx, yPos(prev.rate), cpx, yPos(curr.rate), xPos(curr.d), yPos(curr.rate));
+    }
+    ctx.stroke();
+  }
+
+  // Dots on each point
+  points.forEach((p, i) => {
+    const x = xPos(p.d);
+    const y = yPos(p.rate);
+    const isSelected = p.d === selectedDay;
+    const isToday    = p.d === TODAY;
+
+    ctx.beginPath();
+    ctx.arc(x, y, isSelected || isToday ? 4 : 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = p.rate > 0 ? '#33BB33' : '#333';
+    ctx.fill();
+
+    if (isSelected) {
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, Math.PI * 2);
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+  });
+
+  // X axis day labels — show every 5th day + day 1
+  ctx.font = '300 7px Poppins, sans-serif';
+  ctx.fillStyle = '#333';
+  ctx.textAlign = 'center';
+  for (let d = 1; d <= TODAY; d++) {
+    if (d === 1 || d % 5 === 0) {
+      ctx.fillText(d, xPos(d), padT + gH + 14);
+    }
+  }
+}
+
+// ── HABITS ──
+function syncGridHeight() {
+  const checkPanel = document.querySelector('.check-panel');
+  const calGrid    = document.getElementById('cal-grid');
+  const calWrap    = document.querySelector('.cal-wrap');
+  if (!checkPanel || !calGrid || !calWrap) return;
+
+  const data    = getData();
+  const habits  = data.habits || [];
+
+  // More than 5 habits — stretch cells to fill available height
+  if (habits.length > 5) {
+    calGrid.classList.add('cal-grid-stretch');
+    // Set explicit height on grid to match check panel
+    requestAnimationFrame(() => {
+      const panelH = checkPanel.offsetHeight;
+      const wrapPadding = 20; // top + bottom padding of cal-wrap
+      const headerH = calWrap.querySelector('.cal-month-row').offsetHeight +
+                      calWrap.querySelector('.cal-days-header').offsetHeight +
+                      calWrap.querySelector('.legend').offsetHeight + 28;
+      const gridH = panelH - wrapPadding - headerH;
+      if (gridH > 0) calGrid.style.height = gridH + 'px';
+    });
+  } else {
+    calGrid.classList.remove('cal-grid-stretch');
+    calGrid.style.height = '';
+  }
+}
+
+function renderHabits() {
+  const data   = getData();
+  const habits = data.habits || [];
+  const list   = document.getElementById('habit-list');
+  document.getElementById('habits-count').textContent = `${habits.length} / 7`;
+  list.innerHTML = '';
+  if (habits.length === 0) {
+    list.innerHTML = '<div class="empty-habits">Aucune habitude ajoutée</div>'; return;
+  }
+  habits.forEach(h => {
+    const item = document.createElement('div');
+    item.className = 'habit-item';
+    item.innerHTML = `<span class="habit-name-text">${h.name}</span><button class="habit-delete" onclick="deleteHabit('${h.id}')">✕</button>`;
+    list.appendChild(item);
+  });
+  setTimeout(syncGridHeight, 50);
+}
+
+function addHabit() {
+  const input = document.getElementById('habit-input');
+  const name  = input.value.trim();
+  if (!name) return;
+  const data = getData();
+  if (!data.habits) data.habits = [];
+  if (data.habits.length >= 7) { input.placeholder = 'Maximum 7 habitudes'; input.value = ''; return; }
+  data.habits.push({ id: Date.now().toString(), name });
+  setData(data);
+  input.value = '';
+  renderHabits();
+  openDay(selectedDay);
+  buildCalendar();
+}
+
+function deleteHabit(id) {
+  const data = getData();
+  data.habits = data.habits.filter(h => h.id !== id);
+  setData(data);
+  renderHabits();
+  openDay(selectedDay);
+  buildCalendar();
+}
+
+// ── RESET ──
+let resetPending = false;
+document.getElementById('reset-btn').addEventListener('click', function() {
+  if (!resetPending) {
+    resetPending = true;
+    this.textContent = '⚠ Confirmer ?';
+    this.style.color = '#FF4444';
+    this.style.borderColor = '#FF4444';
+    setTimeout(() => {
+      resetPending = false;
+      this.textContent = '↺ Reset';
+      this.style.color = '#444';
+      this.style.borderColor = '#2a2a2a';
+    }, 3000);
+  } else {
+    resetPending = false;
+    this.textContent = '↺ Reset';
+    this.style.color = '#444';
+    this.style.borderColor = '#2a2a2a';
+    const data = getData();
+    data.days = {}; data.notes = {};
+    setData(data);
+    buildCalendar();
+    openDay(TODAY);
+  }
+});
+
+// ── DEFAULTS ──
+function initDefaults() {
+  const data = getData();
+  if (data.habits && data.habits.length > 0) return;
+  data.habits = [
+    { id: '1', name: 'Réveil 5h30' },
+    { id: '5', name: 'Routine mobilité' },
+    { id: '2', name: 'Gym session' },
+    { id: '3', name: 'Lire 10 pages' },
+    { id: '6', name: '10 min de méditation' },
+    { id: '4', name: 'Routine du soir' },
+  ];
+  if (!data.notes) data.notes = {};
+  setData(data);
+}
+
+// Rebuild graph on resize
+window.addEventListener('resize', () => { buildGraph(); if (histViewMonth !== null) buildHistGraph(); });
+
+// ── TABS ──
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-view').forEach(v => v.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  btn.classList.add('active');
+  if (tab === 'history') buildHistory();
+}
+
+// ── HISTORY ──
+const MONTH_NAMES_FULL = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+let histViewMonth = MONTH;
+let histViewYear  = YEAR;
+
+function getHistKey(y, m) { return `tcmv_${y}_${m}`; }
+function getHistData(y, m) {
+  try { return JSON.parse(localStorage.getItem(getHistKey(y, m)) || '{"habits":[],"days":{},"notes":{}}'); }
+  catch(e) { return {habits:[],days:{},notes:{}}; }
+}
+
+function histChangeMonth(delta) {
+  histViewMonth += delta;
+  if (histViewMonth < 0)  { histViewMonth = 11; histViewYear--; }
+  if (histViewMonth > 11) { histViewMonth = 0;  histViewYear++; }
+  buildHistory();
+}
+
+function buildHistory() {
+  const m = histViewMonth, y = histViewYear;
+  const isCurrent = m === MONTH && y === YEAR;
+
+  document.getElementById('hist-month-title').textContent = MONTH_NAMES_FULL[m] + ' ' + y;
+  document.getElementById('hist-next').disabled = isCurrent;
+
+  const data   = getHistData(y, m);
+  const habits = data.habits || [];
+  const total  = habits.length;
+  const days   = data.days || {};
+  const daysInMonth = new Date(y, m + 1, 0).getDate();
+  const lastDay = isCurrent ? TODAY : daysInMonth;
+
+  // Stats
+  let perfect = 0, bestStreak = 0, currentRun = 0, totalRate = 0, daysWithData = 0;
+  for (let d = 1; d <= lastDay; d++) {
+    const done = habits.filter(h => (days[d]||{})[h.id]).length;
+    if (total > 0) {
+      totalRate += done / total; daysWithData++;
+      if (done === total) { perfect++; currentRun++; if (currentRun > bestStreak) bestStreak = currentRun; }
+      else currentRun = 0;
+    }
+  }
+  const avg = daysWithData > 0 ? Math.round((totalRate / daysWithData) * 100) : 0;
+  document.getElementById('h-perfect').textContent = perfect;
+  document.getElementById('h-rate').textContent    = avg + '%';
+  document.getElementById('h-streak').textContent  = bestStreak;
+
+  // Mini calendar
+  const grid = document.getElementById('hist-cal-grid');
+  grid.innerHTML = '';
+  const firstDay = new Date(y, m, 1).getDay();
+  const offset = firstDay === 0 ? 6 : firstDay - 1;
+  for (let i = 0; i < offset; i++) {
+    const e = document.createElement('div'); e.className = 'cal-cell empty'; grid.appendChild(e);
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const cell = document.createElement('div'); cell.className = 'cal-cell';
+    cell.textContent = d;
+    const done  = habits.filter(h => (days[d]||{})[h.id]).length;
+    const score = total > 0 ? Math.round((done / total) * 7) : 0;
+    if (total > 0 && done > 0) cell.dataset.score = score;
+    if (d === TODAY && isCurrent) cell.classList.add('today');
+    if (isCurrent && d > TODAY)  cell.style.opacity = '0.3';
+    grid.appendChild(cell);
+  }
+
+  // Graph
+  buildHistGraph(y, m, data, lastDay, daysInMonth);
+
+  // Notes table
+  const notesWrap = document.getElementById('hist-notes-wrap');
+  const notes = data.notes || {};
+  const noteEntries = Object.keys(notes)
+    .map(d => ({ d: parseInt(d), text: notes[d] }))
+    .filter(n => n.text && n.text.trim())
+    .sort((a, b) => a.d - b.d);
+
+  if (noteEntries.length === 0) {
+    notesWrap.innerHTML = '<div class="notes-empty">Aucune note ce mois-ci.</div>';
+  } else {
+    const DAY_FR = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+    let html = '<table class="notes-table"><thead><tr><th>Jour</th><th>Note</th></tr></thead><tbody>';
+    noteEntries.forEach(n => {
+      const dateObj = new Date(y, m, n.d);
+      const dayName = DAY_FR[dateObj.getDay()];
+      html += `<tr><td>${dayName} ${n.d}</td><td>${n.text.replace(/\n/g,'<br>')}</td></tr>`;
+    });
+    html += '</tbody></table>';
+    notesWrap.innerHTML = html;
+  }
+}
+
+function buildHistGraph(y, m, data, lastDay, daysInMonth) {
+  const canvas = document.getElementById('hist-graph-canvas');
+  const habits = (data && data.habits) || [];
+  const total  = habits.length;
+  const days   = (data && data.days) || {};
+
+  const points = [];
+  for (let d = 1; d <= lastDay; d++) {
+    const done = habits.filter(h => (days[d]||{})[h.id]).length;
+    points.push({ d, rate: total > 0 ? done / total : 0 });
+  }
+
+  const W = canvas.offsetWidth || 400;
+  const H_graph = 70;
+  canvas.width  = W * window.devicePixelRatio;
+  canvas.height = H_graph * window.devicePixelRatio;
+  canvas.style.height = H_graph + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  ctx.clearRect(0, 0, W, H_graph);
+  if (points.length < 1) return;
+
+  const padL = 24, padR = 10, padT = 8, padB = 18;
+  const gW = W - padL - padR, gH = H_graph - padT - padB;
+
+  ctx.font = '600 7px Poppins, sans-serif';
+  ctx.fillStyle = '#2a2a2a'; ctx.textAlign = 'right';
+  ctx.fillText('100%', padL - 4, padT + 4);
+  ctx.fillText('0%',   padL - 4, padT + gH + 4);
+
+  ctx.strokeStyle = '#1a1a1a'; ctx.lineWidth = 0.5;
+  [0, 0.5, 1].forEach(v => {
+    const y2 = padT + gH * (1 - v);
+    ctx.beginPath(); ctx.moveTo(padL, y2); ctx.lineTo(padL + gW, y2); ctx.stroke();
+  });
+
+  const xPos = d => padL + ((d - 1) / (daysInMonth - 1)) * gW;
+  const yPos = r => padT + gH * (1 - r);
+
+  if (points.length > 1) {
+    const grad = ctx.createLinearGradient(0, padT, 0, padT + gH);
+    grad.addColorStop(0, 'rgba(51,187,51,0.15)');
+    grad.addColorStop(1, 'rgba(51,187,51,0)');
+    ctx.beginPath();
+    ctx.moveTo(xPos(points[0].d), padT + gH);
+    ctx.lineTo(xPos(points[0].d), yPos(points[0].rate));
+    for (let i = 1; i < points.length; i++) {
+      const cpx = (xPos(points[i-1].d) + xPos(points[i].d)) / 2;
+      ctx.bezierCurveTo(cpx, yPos(points[i-1].rate), cpx, yPos(points[i].rate), xPos(points[i].d), yPos(points[i].rate));
+    }
+    ctx.lineTo(xPos(points[points.length-1].d), padT + gH);
+    ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+
+    ctx.beginPath(); ctx.strokeStyle = '#33BB33'; ctx.lineWidth = 1.5;
+    ctx.moveTo(xPos(points[0].d), yPos(points[0].rate));
+    for (let i = 1; i < points.length; i++) {
+      const cpx = (xPos(points[i-1].d) + xPos(points[i].d)) / 2;
+      ctx.bezierCurveTo(cpx, yPos(points[i-1].rate), cpx, yPos(points[i].rate), xPos(points[i].d), yPos(points[i].rate));
+    }
+    ctx.stroke();
+  }
+
+  points.forEach(p => {
+    ctx.beginPath(); ctx.arc(xPos(p.d), yPos(p.rate), 2.5, 0, Math.PI*2);
+    ctx.fillStyle = p.rate > 0 ? '#33BB33' : '#333'; ctx.fill();
+  });
+
+  ctx.font = '300 7px Poppins, sans-serif'; ctx.fillStyle = '#333'; ctx.textAlign = 'center';
+  for (let d = 1; d <= lastDay; d++) {
+    if (d === 1 || d % 5 === 0) ctx.fillText(d, xPos(d), padT + gH + 14);
+  }
+}
+
+// ── EXPORT NOTES ──
+function exportNotes() {
+  const m = histViewMonth, y = histViewYear;
+  const data  = getHistData(y, m);
+  const notes = data.notes || {};
+  const DAY_FR = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+  const MONTH_NAMES_EXP = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+  const entries = Object.keys(notes)
+    .map(d => ({ d: parseInt(d), text: notes[d] }))
+    .filter(n => n.text && n.text.trim())
+    .sort((a, b) => a.d - b.d);
+
+  if (entries.length === 0) {
+    const btn = document.getElementById('export-btn');
+    btn.textContent = '✕ Aucune note';
+    setTimeout(() => { btn.textContent = '⬇ Copier'; }, 2000);
+    return;
+  }
+
+  let text = `NOTES — ${MONTH_NAMES_EXP[m].toUpperCase()} ${y}\n`;
+  text += '─'.repeat(32) + '\n\n';
+  entries.forEach(n => {
+    const dateObj = new Date(y, m, n.d);
+    const dayName = DAY_FR[dateObj.getDay()];
+    text += `${dayName} ${n.d} ${MONTH_NAMES_EXP[m]}\n`;
+    text += n.text.trim() + '\n\n';
+  });
+
+  // Copy to clipboard
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('export-btn');
+      btn.textContent = '✓ Copié !';
+      btn.style.color = '#33BB33';
+      btn.style.borderColor = '#1a3a1a';
+      setTimeout(() => {
+        btn.textContent = '⬇ Copier';
+        btn.style.color = '#666';
+        btn.style.borderColor = '#2a2a2a';
+      }, 2000);
+    }).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;top:-9999px;opacity:0;';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    const btn = document.getElementById('export-btn');
+    btn.textContent = '✓ Copié !';
+    btn.style.color = '#33BB33';
+    setTimeout(() => { btn.textContent = '⬇ Copier'; btn.style.color = '#666'; }, 2000);
+  } catch(e) {
+    alert(text);
+  }
+  document.body.removeChild(ta);
+}
+
+// ── FULL RESET ──
+let fullResetPending = false;
+document.getElementById('full-reset-btn').addEventListener('click', function() {
+  if (!fullResetPending) {
+    fullResetPending = true;
+    this.textContent = `⚠ Confirmer — effacer tout ?`;
+    this.style.color = '#FF4444';
+    this.style.borderColor = '#FF4444';
+    setTimeout(() => {
+      fullResetPending = false;
+      this.textContent = `✕ Effacer tout l'historique`;
+      this.style.color = '#555';
+      this.style.borderColor = '#333';
+    }, 3000);
+  } else {
+    fullResetPending = false;
+    this.textContent = `✕ Effacer tout l'historique`;
+    this.style.color = '#555';
+    this.style.borderColor = '#333';
+    // Delete all tcmv_ keys
+    const keys = Object.keys(localStorage).filter(k => k.startsWith('tcmv_'));
+    keys.forEach(k => localStorage.removeItem(k));
+    // Re-init
+    initDefaults();
+    buildCalendar();
+    renderHabits();
+    openDay(TODAY);
+    buildHistory();
+  }
+});
+
+
+
+// ── ONBOARDING ──
+let obStep = 1;
+let obHabits = [];
+
+function obShouldShow() {
+  try {
+    const d = JSON.parse(localStorage.getItem(getKey()) || '{}');
+    return !d.habits || d.habits.length === 0;
+  } catch(e) { return true; }
+}
+
+function obGoTo(s) {
+  [1,2,3,4].forEach(i => {
+    const el = document.getElementById('ob-s'+i);
+    if (el) el.style.display = i===s ? 'block' : 'none';
+    const dot = document.getElementById('op'+i);
+    if (dot) dot.classList.toggle('on', i===s);
+  });
+  obStep = s;
+}
+function obNext() { obGoTo(obStep+1); }
+function obPrev() { obGoTo(obStep-1); }
+
+function obAddHabit() {
+  const input = document.getElementById('ob-input');
+  const name = input.value.trim();
+  if (!name || obHabits.length >= 7) return;
+  obHabits.push({ id: Date.now().toString(), name });
+  input.value = '';
+  obRenderHabits();
+}
+function obDeleteHabit(i) {
+  obHabits.splice(i, 1);
+  obRenderHabits();
+}
+function obRenderHabits() {
+  const list = document.getElementById('ob-habit-list');
+  list.innerHTML = '';
+  obHabits.forEach((h, i) => {
+    const item = document.createElement('div');
+    item.className = 'ob-habit-item';
+    item.innerHTML = `<span>${h.name}</span><button class="ob-habit-del" onclick="obDeleteHabit(${i})">✕</button>`;
+    list.appendChild(item);
+  });
+}
+
+function obFinish() {
+  if (obHabits.length > 0) {
+    const data = getData();
+    data.habits = obHabits;
+    if (!data.notes) data.notes = {};
+    setData(data);
+  } else {
+    initDefaults();
+  }
+  document.getElementById('ob-overlay').classList.add('hidden');
+  buildCalendar();
+  renderHabits();
+  openDay(TODAY);
+}
+
+function obBuildDemo() {
+  const grid = document.getElementById('ob-demo-cal');
+  if (!grid) return;
+  const scores = [-1,-1,-1,7,3,7,1,5,7,7,4,7,7,2,7,2,6,7,5,7,7,4,7,7,7,6,7,1,7,7,5,7,0,-1,-1];
+  const bg  = ['transparent','#0D1F0D','#0F2A0F','#115511','#137013','#158015','#179917','#19B019'];
+  const bdr = ['transparent','#1A3A1A','#1E4A1E','#226622','#268026','#2A902A','#2FAA2F','#33BB33'];
+  scores.forEach(s => {
+    const d = document.createElement('div');
+    d.className = 'ob-cal-cell';
+    if (s === -1) {
+      d.style.background = 'transparent';
+      d.style.borderColor = 'transparent';
+    } else if (s === 0) {
+      d.style.background = '#161616';
+      d.style.borderColor = '#1e1e1e';
+    } else {
+      d.style.background = bg[s];
+      d.style.borderColor = bdr[s];
+    }
+    grid.appendChild(d);
+  });
+}
+
+
+// ── START ──
+obBuildDemo();
+buildCalendar();
+renderHabits();
+openDay(TODAY);
+const _shouldShow = obShouldShow();
+if (_shouldShow) {
+  document.getElementById('ob-overlay').classList.remove('hidden');
+} else {
+  initDefaults();
+  buildCalendar();
+  renderHabits();
+  openDay(TODAY);
+}
+histViewMonth = MONTH;
+histViewYear  = YEAR;
+
+</script>
+</body>
+</html>
